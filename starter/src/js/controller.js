@@ -10,12 +10,6 @@ import paginationView from "./views/paginationView.js";
 import bookmarksView from "./views/bookmarksView.js";
 import addRecipeView from "./views/addRecipeView.js";
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
-// https://forkify-api.herokuapp.com/v2
-
 ///////////////////////////////////////
 
 async function controlRecipes() {
@@ -79,7 +73,7 @@ function controlServings(newServings) {
   //Update the recipe servings(in state)
   modal.updateServings(newServings);
   //Update the recipe view
-  // recipeView.render(modal.state.recipe);
+
   recipeView.update(modal.state.recipe);
 }
 
