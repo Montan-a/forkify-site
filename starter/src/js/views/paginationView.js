@@ -16,27 +16,44 @@ class paginationView extends View {
     });
   }
 
+  _pagesArray(numPages) {
+    const pages = [];
+    for (let i = 0; i < numPages + 1; i++) {
+      pages.push(i);
+    }
+    const pagesArr = pages.slice(1);
+    return pagesArr;
+  }
   #generateMarkupBtns(curPage, numPages) {
     const nextPage = `
     <button data-goto="${
       curPage + 1
     }" class="btn--inline pagination__btn--next">
-      <span>Page ${curPage + 1}</span>
       <svg class="search__icon">
         <use href="${icons}#icon-arrow-right"></use>
+        <span>Page ${curPage + 1}</span>
       </svg>
-    </button>`;
+    </button>
+  `;
+
+    // const numBtn = this._pagesArray(numPages).forEach((page) => {
+    //   let btn = document.createElement("button");
+    //   btn.innerText = page;
+    //   if (curPage === page) btn.classList.add("active");
+    //   this._parentElement.appendChild(btn);
+
+    // });
 
     const prevPage = `
     <button data-goto="${
       curPage - 1
     }" class="btn--inline pagination__btn--prev">
-        <svg class="search__icon">
-            <use href="${icons}#icon-arrow-left"></use>
-        </svg>
-        <span>Page ${curPage - 1}</span>
+      <svg class="search__icon">
+        <use href="${icons}#icon-arrow-left"></use>
+      </svg>
+      <span>Page ${curPage - 1}</span>
     </button>
-    `;
+  `;
 
     //Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
@@ -58,6 +75,7 @@ class paginationView extends View {
     const numPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
     );
+
     const curPage = this._data.page;
     return this.#generateMarkupBtns(curPage, numPages);
   }
