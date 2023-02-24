@@ -75,7 +75,7 @@ export function getSearchResultsPage(page = state.search.page) {
 export function updateServings(newServings) {
   state.recipe.ingredients.forEach((ing) => {
     ing.quantity = (ing.quantity * newServings) / state.recipe.servings;
-    //newQuantity = oldQuantity * newServings / oldServings//
+
     state.recipe.servings = newServings;
   });
 }
