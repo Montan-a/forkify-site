@@ -44,15 +44,15 @@ class paginationView extends View {
 
     //Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
-      return nextPage + numBtn[curPage - 1];
+      return nextPage;
     }
     //Last page
     if (curPage === numPages && numPages > 1) {
-      return prevPage + numBtn[curPage - 1];
+      return prevPage;
     }
     //Other pages
     if (curPage < numPages) {
-      return prevPage + nextPage + numBtn[curPage - 1];
+      return prevPage + nextPage;
     }
     //Page 1, and there are no other pages
     return "";
