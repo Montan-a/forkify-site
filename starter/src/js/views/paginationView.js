@@ -23,12 +23,12 @@ class paginationView extends View {
     }" class="btn--inline pagination__btn--next">
     <svg class="search__icon">
     <use href="${icons}#icon-arrow-right"></use>
-    <span></span>
+    <span>${curPage + 1}</span>
     </svg>
     </button>
     `;
 
-    const numBtn = this._appendPageNumber(curPage, numPages);
+    // const numBtn = this._appendPageNumber(curPage, numPages);
 
     console.log(this._parentElement);
     const prevPage = `
@@ -36,9 +36,9 @@ class paginationView extends View {
       curPage - 1
     }" class="btn--inline pagination__btn--prev">
       <svg class="search__icon">
-        <use href="${icons}#icon-arrow-left"></use>
+        <use href="${icons}#icon-arrow-left"></use> 
       </svg>
-      <span></span>
+      <span>${curPage - 1}</span>
     </button>
   `;
 
